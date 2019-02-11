@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "DejaVuSansMono Nerd Font Mono Book:pixelsize=11:antialias=true:autohint=true";
+static char *font = "DejaVu Sans Mono for Powerline:pixelsize=14";
 static int borderpx = 2;
 
 /*
@@ -90,6 +90,9 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
+/* bg opacity */
+unsigned int alpha = 0xcc;
+
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
@@ -117,6 +120,7 @@ static const char *colorname[] = {
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
+	"black",
 };
 
 
@@ -125,7 +129,7 @@ static const char *colorname[] = {
  * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
+unsigned int defaultbg = 258;
 static unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 
@@ -179,9 +183,9 @@ ResourcePref resources[] = {
 		{ "color13",      STRING,  &colorname[13] },
 		{ "color14",      STRING,  &colorname[14] },
 		{ "color15",      STRING,  &colorname[15] },
-		{ "background",   STRING,  &colorname[256] },
+		{ "background",   STRING,  &colorname[258] },
 		{ "foreground",   STRING,  &colorname[257] },
-		{ "cursorColor",  STRING,  &colorname[258] },
+		{ "cursorColor",  STRING,  &colorname[256] },
 		{ "termname",     STRING,  &termname },
 		{ "shell",        STRING,  &shell },
 		{ "xfps",         INTEGER, &xfps },
